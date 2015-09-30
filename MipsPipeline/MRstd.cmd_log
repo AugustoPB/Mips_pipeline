@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "C:/Users/Augusto/Documents/ARQ/Pipeline/MipsPipeline/MRstd.xst" -ofn "C:/Users/Augusto/Documents/ARQ/Pipeline/MipsPipeline/MRstd.syr" 

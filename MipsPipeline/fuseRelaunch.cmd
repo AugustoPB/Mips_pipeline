@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "C:/Users/Augusto/Documents/ARQ/Pipeline 2.0/MipsPipeline/CPU_tb_isim_beh.exe" -prj "C:/Users/Augusto/Documents/ARQ/Pipeline 2.0/MipsPipeline/CPU_tb_beh.prj" "work.CPU_tb" 

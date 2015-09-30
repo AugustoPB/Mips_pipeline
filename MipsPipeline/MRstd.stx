@@ -1,0 +1,60 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to C:/Users/Augusto/Documents/ARQ/Pipeline 2.0/MipsPipeline/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Parameter xsthdpdir set to C:/Users/Augusto/Documents/ARQ/Pipeline 2.0/MipsPipeline/xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> WARNING:Xst:3164 - Option "-debug" found multiple times in the command line. Only the first occurence is considered.
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/Augusto/Documents/ARQ/Pipeline 2.0/MipsPipeline/mips_multiciclo.vhd" in Library work.
+Package <p_mrstd> compiled.
+Entity <regnbit> compiled.
+Entity <regnbit> (Architecture <regnbit>) compiled.
+Entity <regbit> compiled.
+Entity <regbit> (Architecture <regbit>) compiled.
+Entity <regmins> compiled.
+Entity <regmins> (Architecture <regmins>) compiled.
+Entity <pulsesig> compiled.
+Entity <pulsesig> (Architecture <pulsesig>) compiled.
+Entity <reg_bank> compiled.
+Entity <reg_bank> (Architecture <reg_bank>) compiled.
+Entity <alu> compiled.
+Entity <alu> (Architecture <alu>) compiled.
+Entity <bidi> compiled.
+Entity <bidi> (Architecture <bidi>) compiled.
+Entity <diex> compiled.
+Entity <diex> (Architecture <diex>) compiled.
+Entity <exmem> compiled.
+Entity <exmem> (Architecture <exmem>) compiled.
+Entity <memer> compiled.
+Entity <memer> (Architecture <memer>) compiled.
+Entity <datapath> compiled.
+Entity <datapath> (Architecture <datapath>) compiled.
+Entity <control_unit> compiled.
+Entity <control_unit> (Architecture <control_unit>) compiled.
+Entity <mrstd> compiled.
+Entity <mrstd> (Architecture <mrstd>) compiled.
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.31 secs
+ 
+--> 
+
+Total memory usage is 265020 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

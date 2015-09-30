@@ -1,0 +1,5 @@
+set -tmpdir "C:/Users/Augusto/Documents/ARQ/Pipeline 2.0/MipsPipeline/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/Augusto/Documents/ARQ/Pipeline 2.0/MipsPipeline/xst"
+elaborate
+-ifn MRstd.prj
+-ifmt mixed

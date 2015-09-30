@@ -1,0 +1,619 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> Reading design: MRstd.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "MRstd.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "MRstd"
+Output Format                      : NGC
+Target Device                      : xc3s1200e-4-ft256
+
+---- Source Options
+Top Module Name                    : MRstd
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/Augusto/Documents/ARQ/Pipeline/MipsPipeline/mips_multiciclo.vhd" in Library work.
+Package <p_mrstd> compiled.
+Entity <regnbit> compiled.
+Entity <regnbit> (Architecture <regnbit>) compiled.
+Entity <regbit> compiled.
+Entity <regbit> (Architecture <regbit>) compiled.
+Entity <regmins> compiled.
+Entity <regmins> (Architecture <regmins>) compiled.
+Entity <reg_bank> compiled.
+Entity <reg_bank> (Architecture <reg_bank>) compiled.
+Entity <alu> compiled.
+Entity <alu> (Architecture <alu>) compiled.
+Entity <bidi> compiled.
+Entity <bidi> (Architecture <bidi>) compiled.
+Entity <diex> compiled.
+Entity <diex> (Architecture <diex>) compiled.
+Entity <exmem> compiled.
+Entity <exmem> (Architecture <exmem>) compiled.
+Entity <memer> compiled.
+Entity <memer> (Architecture <memer>) compiled.
+Entity <datapath> compiled.
+Entity <datapath> (Architecture <datapath>) compiled.
+Entity <control_unit> compiled.
+Entity <control_unit> (Architecture <control_unit>) compiled.
+Entity <mrstd> compiled.
+Entity <mrstd> (Architecture <mrstd>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <MRstd> in library <work> (architecture <mrstd>).
+
+Analyzing hierarchy for entity <datapath> in library <work> (architecture <datapath>).
+
+Analyzing hierarchy for entity <control_unit> in library <work> (architecture <control_unit>).
+
+Analyzing hierarchy for entity <BIDI> in library <work> (architecture <BIDI>).
+
+Analyzing hierarchy for entity <reg_bank> in library <work> (architecture <reg_bank>).
+
+Analyzing hierarchy for entity <DIEX> in library <work> (architecture <DIEX>).
+
+Analyzing hierarchy for entity <alu> in library <work> (architecture <alu>).
+
+Analyzing hierarchy for entity <EXMEM> in library <work> (architecture <EXMEM>).
+
+Analyzing hierarchy for entity <MEMER> in library <work> (architecture <MEMER>).
+
+Analyzing hierarchy for entity <regnbit> in library <work> (architecture <regnbit>) with generics.
+	INIT_VALUE = "00000000010000000000000000000000"
+	REG_SIZE = 31
+	SENSIBILITY = '1'
+
+Analyzing hierarchy for entity <regnbit> in library <work> (architecture <regnbit>) with generics.
+	INIT_VALUE = "00000000000000000000000000000000"
+	REG_SIZE = 31
+	SENSIBILITY = '1'
+
+Analyzing hierarchy for entity <regnbit> in library <work> (architecture <regnbit>) with generics.
+	INIT_VALUE = "00000000000000000000000000000000"
+	REG_SIZE = 31
+	SENSIBILITY = '0'
+
+Analyzing hierarchy for entity <regnbit> in library <work> (architecture <regnbit>) with generics.
+	INIT_VALUE = "00010000000000010000100000000000"
+	REG_SIZE = 31
+	SENSIBILITY = '0'
+
+Analyzing hierarchy for entity <regnbit> in library <work> (architecture <regnbit>) with generics.
+	INIT_VALUE = "00000000000000000000000000000000"
+	REG_SIZE = 2
+	SENSIBILITY = '1'
+
+Analyzing hierarchy for entity <regmins> in library <work> (architecture <regmins>) with generics.
+	INIT_VALUE = "invalid_instruction"
+	SENSIBILITY = '1'
+
+Analyzing hierarchy for entity <regnbit> in library <work> (architecture <regnbit>) with generics.
+	INIT_VALUE = "00000000000000000000000000000000"
+	REG_SIZE = 4
+	SENSIBILITY = '1'
+
+Analyzing hierarchy for entity <regbit> in library <work> (architecture <regbit>) with generics.
+	INIT_VALUE = '0'
+	SENSIBILITY = '1'
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <MRstd> in library <work> (Architecture <mrstd>).
+Entity <MRstd> analyzed. Unit <MRstd> generated.
+
+Analyzing Entity <datapath> in library <work> (Architecture <datapath>).
+Entity <datapath> analyzed. Unit <datapath> generated.
+
+Analyzing Entity <BIDI> in library <work> (Architecture <BIDI>).
+Entity <BIDI> analyzed. Unit <BIDI> generated.
+
+Analyzing generic Entity <regnbit.2> in library <work> (Architecture <regnbit>).
+	INIT_VALUE = "00000000000000000000000000000000"
+	REG_SIZE = 31
+	SENSIBILITY = '1'
+Entity <regnbit.2> analyzed. Unit <regnbit.2> generated.
+
+Analyzing Entity <reg_bank> in library <work> (Architecture <reg_bank>).
+Entity <reg_bank> analyzed. Unit <reg_bank> generated.
+
+Analyzing generic Entity <regnbit.3> in library <work> (Architecture <regnbit>).
+	INIT_VALUE = "00000000000000000000000000000000"
+	REG_SIZE = 31
+	SENSIBILITY = '0'
+Entity <regnbit.3> analyzed. Unit <regnbit.3> generated.
+
+Analyzing generic Entity <regnbit.4> in library <work> (Architecture <regnbit>).
+	INIT_VALUE = "00010000000000010000100000000000"
+	REG_SIZE = 31
+	SENSIBILITY = '0'
+Entity <regnbit.4> analyzed. Unit <regnbit.4> generated.
+
+Analyzing Entity <DIEX> in library <work> (Architecture <DIEX>).
+Entity <DIEX> analyzed. Unit <DIEX> generated.
+
+Analyzing generic Entity <regnbit.5> in library <work> (Architecture <regnbit>).
+	INIT_VALUE = "00000000000000000000000000000000"
+	REG_SIZE = 2
+	SENSIBILITY = '1'
+Entity <regnbit.5> analyzed. Unit <regnbit.5> generated.
+
+Analyzing generic Entity <regmins> in library <work> (Architecture <regmins>).
+	INIT_VALUE = "invalid_instruction"
+	SENSIBILITY = '1'
+Entity <regmins> analyzed. Unit <regmins> generated.
+
+Analyzing generic Entity <regnbit.6> in library <work> (Architecture <regnbit>).
+	INIT_VALUE = "00000000000000000000000000000000"
+	REG_SIZE = 4
+	SENSIBILITY = '1'
+Entity <regnbit.6> analyzed. Unit <regnbit.6> generated.
+
+Analyzing Entity <alu> in library <work> (Architecture <alu>).
+Entity <alu> analyzed. Unit <alu> generated.
+
+Analyzing Entity <EXMEM> in library <work> (Architecture <EXMEM>).
+Entity <EXMEM> analyzed. Unit <EXMEM> generated.
+
+Analyzing generic Entity <regbit> in library <work> (Architecture <regbit>).
+	INIT_VALUE = '0'
+	SENSIBILITY = '1'
+Entity <regbit> analyzed. Unit <regbit> generated.
+
+Analyzing Entity <MEMER> in library <work> (Architecture <MEMER>).
+Entity <MEMER> analyzed. Unit <MEMER> generated.
+
+Analyzing generic Entity <regnbit.1> in library <work> (Architecture <regnbit>).
+	INIT_VALUE = "00000000010000000000000000000000"
+	REG_SIZE = 31
+	SENSIBILITY = '1'
+Entity <regnbit.1> analyzed. Unit <regnbit.1> generated.
+
+Analyzing Entity <control_unit> in library <work> (Architecture <control_unit>).
+WARNING:Xst:1748 - "C:/Users/Augusto/Documents/ARQ/Pipeline/MipsPipeline/mips_multiciclo.vhd" line 660: VHDL Assertion Statement with non constant condition is ignored.
+Entity <control_unit> analyzed. Unit <control_unit> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <control_unit>.
+    Related source file is "C:/Users/Augusto/Documents/ARQ/Pipeline/MipsPipeline/mips_multiciclo.vhd".
+WARNING:Xst:647 - Input <ck> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+Unit <control_unit> synthesized.
+
+
+Synthesizing Unit <alu>.
+    Related source file is "C:/Users/Augusto/Documents/ARQ/Pipeline/MipsPipeline/mips_multiciclo.vhd".
+    Found 32-bit comparator less for signal <menorS$cmp_lt0000> created at line 226.
+    Found 32-bit comparator less for signal <menorU$cmp_lt0000> created at line 225.
+    Found 32-bit addsub for signal <outalu$addsub0000>.
+    Found 32-bit shifter logical left for signal <outalu$shift0006> created at line 228.
+    Found 32-bit shifter arithmetic right for signal <outalu$shift0008> created at line 228.
+    Found 32-bit shifter logical right for signal <outalu$shift0010> created at line 228.
+    Found 32-bit shifter logical left for signal <outalu$shift0012> created at line 228.
+    Found 32-bit shifter arithmetic right for signal <outalu$shift0013> created at line 228.
+    Found 32-bit shifter logical right for signal <outalu$shift0014> created at line 228.
+    Found 32-bit xor2 for signal <outalu$xor0000> created at line 228.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+	inferred   6 Combinational logic shifter(s).
+Unit <alu> synthesized.
+
+
+Synthesizing Unit <regnbit_1>.
+    Related source file is "C:/Users/Augusto/Documents/ARQ/Pipeline/MipsPipeline/mips_multiciclo.vhd".
+    Found 32-bit register for signal <Q>.
+Unit <regnbit_1> synthesized.
+
+
+Synthesizing Unit <regnbit_2>.
+    Related source file is "C:/Users/Augusto/Documents/ARQ/Pipeline/MipsPipeline/mips_multiciclo.vhd".
+    Found 32-bit register for signal <Q>.
+    Summary:
+	inferred  32 D-type flip-flop(s).
+Unit <regnbit_2> synthesized.
+
+
+Synthesizing Unit <regnbit_3>.
+    Related source file is "C:/Users/Augusto/Documents/ARQ/Pipeline/MipsPipeline/mips_multiciclo.vhd".
+    Found 32-bit register for signal <Q>.
+    Summary:
+	inferred  32 D-type flip-flop(s).
+Unit <regnbit_3> synthesized.
+
+
+Synthesizing Unit <regnbit_4>.
+    Related source file is "C:/Users/Augusto/Documents/ARQ/Pipeline/MipsPipeline/mips_multiciclo.vhd".
+    Found 32-bit register for signal <Q>.
+Unit <regnbit_4> synthesized.
+
+
+Synthesizing Unit <regnbit_5>.
+    Related source file is "C:/Users/Augusto/Documents/ARQ/Pipeline/MipsPipeline/mips_multiciclo.vhd".
+    Found 3-bit register for signal <Q>.
+    Summary:
+	inferred   3 D-type flip-flop(s).
+Unit <regnbit_5> synthesized.
+
+
+Synthesizing Unit <regmins>.
+    Related source file is "C:/Users/Augusto/Documents/ARQ/Pipeline/MipsPipeline/mips_multiciclo.vhd".
+    Found 1-bit register for signal <Q.wmdr>.
+    Found 6-bit register for signal <Q.i>.
+    Found 1-bit register for signal <Q.CY1>.
+    Found 1-bit register for signal <Q.CY2>.
+    Found 1-bit register for signal <Q.ce>.
+    Found 1-bit register for signal <Q.bw>.
+    Found 1-bit register for signal <Q.wreg>.
+    Found 1-bit register for signal <Q.walu>.
+    Found 1-bit register for signal <Q.wpc>.
+    Found 1-bit register for signal <Q.rw>.
+    Summary:
+	inferred   9 D-type flip-flop(s).
+Unit <regmins> synthesized.
+
+
+Synthesizing Unit <regnbit_6>.
+    Related source file is "C:/Users/Augusto/Documents/ARQ/Pipeline/MipsPipeline/mips_multiciclo.vhd".
+    Found 5-bit register for signal <Q>.
+    Summary:
+	inferred   5 D-type flip-flop(s).
+Unit <regnbit_6> synthesized.
+
+
+Synthesizing Unit <regbit>.
+    Related source file is "C:/Users/Augusto/Documents/ARQ/Pipeline/MipsPipeline/mips_multiciclo.vhd".
+    Found 1-bit register for signal <Q>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <regbit> synthesized.
+
+
+Synthesizing Unit <BIDI>.
+    Related source file is "C:/Users/Augusto/Documents/ARQ/Pipeline/MipsPipeline/mips_multiciclo.vhd".
+Unit <BIDI> synthesized.
+
+
+Synthesizing Unit <reg_bank>.
+    Related source file is "C:/Users/Augusto/Documents/ARQ/Pipeline/MipsPipeline/mips_multiciclo.vhd".
+    Found 32-bit 32-to-1 multiplexer for signal <R1>.
+    Found 32-bit 32-to-1 multiplexer for signal <R2>.
+    Summary:
+	inferred  64 Multiplexer(s).
+Unit <reg_bank> synthesized.
+
+
+Synthesizing Unit <DIEX>.
+    Related source file is "C:/Users/Augusto/Documents/ARQ/Pipeline/MipsPipeline/mips_multiciclo.vhd".
+Unit <DIEX> synthesized.
+
+
+Synthesizing Unit <EXMEM>.
+    Related source file is "C:/Users/Augusto/Documents/ARQ/Pipeline/MipsPipeline/mips_multiciclo.vhd".
+Unit <EXMEM> synthesized.
+
+
+Synthesizing Unit <MEMER>.
+    Related source file is "C:/Users/Augusto/Documents/ARQ/Pipeline/MipsPipeline/mips_multiciclo.vhd".
+Unit <MEMER> synthesized.
+
+
+Synthesizing Unit <datapath>.
+    Related source file is "C:/Users/Augusto/Documents/ARQ/Pipeline/MipsPipeline/mips_multiciclo.vhd".
+WARNING:Xst:646 - Signal <auxiR<1:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 32-bit tristate buffer for signal <data>.
+    Found 32-bit 4-to-1 multiplexer for signal <cte_im>.
+    Found 32-bit adder for signal <incpc>.
+    Found 32-bit comparator equal for signal <salta$cmp_eq0000> created at line 540.
+    Found 33-bit comparator greatequal for signal <salta$cmp_ge0000> created at line 540.
+    Found 33-bit comparator lessequal for signal <salta$cmp_le0000> created at line 540.
+    Found 32-bit comparator not equal for signal <salta$cmp_ne0000> created at line 540.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   4 Comparator(s).
+	inferred  32 Multiplexer(s).
+	inferred  32 Tristate(s).
+Unit <datapath> synthesized.
+
+
+Synthesizing Unit <MRstd>.
+    Related source file is "C:/Users/Augusto/Documents/ARQ/Pipeline/MipsPipeline/mips_multiciclo.vhd".
+WARNING:Xst:646 - Signal <uinsM.wreg> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <uinsM.wpc> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <uinsM.wmdr> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <uinsM.walu> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <uinsM.i> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <uinsM.CY2> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <uinsM.CY1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <uinsE.wreg> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <uinsE.wpc> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <uinsE.wmdr> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <uinsE.walu> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <uinsE.rw> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <uinsE.i> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <uinsE.ce> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <uinsE.bw> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <uinsE.CY2> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <uinsE.CY1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <MRstd> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 2
+ 32-bit adder                                          : 1
+ 32-bit addsub                                         : 1
+# Registers                                            : 83
+ 1-bit register                                        : 29
+ 3-bit register                                        : 3
+ 32-bit register                                       : 44
+ 5-bit register                                        : 4
+ 6-bit register                                        : 3
+# Comparators                                          : 6
+ 32-bit comparator equal                               : 1
+ 32-bit comparator less                                : 2
+ 32-bit comparator not equal                           : 1
+ 33-bit comparator greatequal                          : 1
+ 33-bit comparator lessequal                           : 1
+# Multiplexers                                         : 3
+ 32-bit 32-to-1 multiplexer                            : 2
+ 32-bit 4-to-1 multiplexer                             : 1
+# Logic shifters                                       : 6
+ 32-bit shifter arithmetic right                       : 2
+ 32-bit shifter logical left                           : 2
+ 32-bit shifter logical right                          : 2
+# Tristates                                            : 1
+ 32-bit tristate buffer                                : 1
+# Xors                                                 : 1
+ 32-bit xor2                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:1710 - FF/Latch <Q_31> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_30> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_29> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_28> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_27> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_26> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_25> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_24> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_23> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_22> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_21> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_20> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_19> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_18> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_17> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_16> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_15> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_14> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_13> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_12> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_11> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_10> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_9> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_8> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_7> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_6> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_5> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_4> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_3> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_2> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_1> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Q_0> (without init value) has a constant value of 0 in block <g1[0].g3.rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <Q_0> of sequential type is unconnected in block <RAUXI>.
+WARNING:Xst:2677 - Node <Q_0> of sequential type is unconnected in block <RAUXI>.
+WARNING:Xst:2677 - Node <Q_1> of sequential type is unconnected in block <RAUXI>.
+WARNING:Xst:2677 - Node <Q_0> of sequential type is unconnected in block <RAUXI>.
+WARNING:Xst:2677 - Node <Q_1> of sequential type is unconnected in block <RAUXI>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 2
+ 32-bit adder                                          : 1
+ 32-bit addsub                                         : 1
+# Registers                                            : 1484
+ Flip-Flops                                            : 1484
+# Comparators                                          : 6
+ 32-bit comparator equal                               : 1
+ 32-bit comparator less                                : 2
+ 32-bit comparator not equal                           : 1
+ 33-bit comparator greatequal                          : 1
+ 33-bit comparator lessequal                           : 1
+# Multiplexers                                         : 3
+ 32-bit 32-to-1 multiplexer                            : 2
+ 32-bit 4-to-1 multiplexer                             : 1
+# Logic shifters                                       : 6
+ 32-bit shifter arithmetic right                       : 2
+ 32-bit shifter logical left                           : 2
+ 32-bit shifter logical right                          : 2
+# Xors                                                 : 1
+ 32-bit xor2                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <g1[0].g3.rx/Q_0> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_1> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_2> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_3> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_4> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_5> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_6> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_7> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_8> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_9> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_10> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_11> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_12> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_13> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_14> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_15> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_16> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_17> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_18> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_19> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_20> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_21> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_22> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_23> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_24> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_25> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_26> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_27> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_28> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_29> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_30> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <g1[0].g3.rx/Q_31> (without init value) has a constant value of 0 in block <reg_bank>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <EXMEM/RAUXI/Q_0> of sequential type is unconnected in block <datapath>.
+WARNING:Xst:2677 - Node <EXMEM/RAUXI/Q_1> of sequential type is unconnected in block <datapath>.
+WARNING:Xst:2677 - Node <MEMER/RAUXI/Q_0> of sequential type is unconnected in block <datapath>.
+WARNING:Xst:2677 - Node <MEMER/RAUXI/Q_1> of sequential type is unconnected in block <datapath>.
+WARNING:Xst:2677 - Node <dp/MEMER/RMINS/Q.rw> of sequential type is unconnected in block <MRstd>.
+WARNING:Xst:2677 - Node <dp/MEMER/RMINS/Q.wpc> of sequential type is unconnected in block <MRstd>.
+WARNING:Xst:2677 - Node <dp/MEMER/RMINS/Q.bw> of sequential type is unconnected in block <MRstd>.
+WARNING:Xst:2677 - Node <dp/MEMER/RMINS/Q.walu> of sequential type is unconnected in block <MRstd>.
+WARNING:Xst:2677 - Node <dp/MEMER/RMINS/Q.wmdr> of sequential type is unconnected in block <MRstd>.
+WARNING:Xst:2677 - Node <dp/MEMER/RMINS/Q.ce> of sequential type is unconnected in block <MRstd>.
+WARNING:Xst:2677 - Node <dp/MEMER/RMINS/Q.CY1> of sequential type is unconnected in block <MRstd>.
+WARNING:Xst:2677 - Node <dp/MEMER/RMINS/Q.CY2> of sequential type is unconnected in block <MRstd>.
+WARNING:Xst:2677 - Node <dp/EXMEM/RMINS/Q.wpc> of sequential type is unconnected in block <MRstd>.
+WARNING:Xst:2677 - Node <dp/EXMEM/RMINS/Q.walu> of sequential type is unconnected in block <MRstd>.
+WARNING:Xst:2677 - Node <dp/EXMEM/RMINS/Q.wmdr> of sequential type is unconnected in block <MRstd>.
+WARNING:Xst:2677 - Node <dp/EXMEM/RMINS/Q.CY1> of sequential type is unconnected in block <MRstd>.
+WARNING:Xst:2677 - Node <dp/EXMEM/RMINS/Q.CY2> of sequential type is unconnected in block <MRstd>.
+WARNING:Xst:2170 - Unit alu : the following signal(s) form a combinatorial loop: outalu_shift0009<31>.
+
+Optimizing unit <MRstd> ...
+
+Optimizing unit <control_unit> ...
+
+Optimizing unit <alu> ...
+
+Optimizing unit <regnbit_2> ...
+
+Optimizing unit <reg_bank> ...
+
+Optimizing unit <DIEX> ...
+WARNING:Xst:2677 - Node <dp/DIEX/RMINS/Q.CY2> of sequential type is unconnected in block <MRstd>.
+WARNING:Xst:2677 - Node <dp/DIEX/RMINS/Q.CY1> of sequential type is unconnected in block <MRstd>.
+WARNING:Xst:2677 - Node <dp/DIEX/RMINS/Q.wmdr> of sequential type is unconnected in block <MRstd>.
+WARNING:Xst:2677 - Node <dp/DIEX/RMINS/Q.wpc> of sequential type is unconnected in block <MRstd>.
+WARNING:Xst:2677 - Node <dp/DIEX/RAUXI/Q_0> of sequential type is unconnected in block <MRstd>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+INFO:Xst:2261 - The FF/Latch <dp/DIEX/REG_IM/Q_28> in Unit <MRstd> is equivalent to the following 3 FFs/Latches, which will be removed : <dp/DIEX/REG_IM/Q_29> <dp/DIEX/REG_IM/Q_30> <dp/DIEX/REG_IM/Q_31> 
+Found area constraint ratio of 100 (+ 5) on block MRstd, actual ratio is 22.
