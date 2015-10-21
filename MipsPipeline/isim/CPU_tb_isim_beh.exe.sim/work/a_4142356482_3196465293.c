@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "C:/Users/Augusto/Documents/ARQ/Pipeline 2.0/MipsPipeline/mips_multiciclo.vhd";
+static const char *ng0 = "C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd";
 
 
 
@@ -70,7 +70,7 @@ LAB3:    t1 = (t0 + 3512);
 
 LAB1:    return;
 LAB2:    xsi_set_current_line(70, ng0);
-    t1 = (t0 + 5876);
+    t1 = (t0 + 5920);
     t6 = (31 - 31);
     t7 = (t6 * 1U);
     t8 = (0 + t7);

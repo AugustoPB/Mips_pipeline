@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-09-29T17:40:55</DateModified>
+  <DateModified>2015-10-21T15:37:36</DateModified>
   <ModuleName>MRstd</ModuleName>
-  <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/Augusto/Documents/ARQ/Pipeline 2.0/MipsPipeline/iseconfig/MRstd.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/Augusto/Documents/ARQ/Pipeline 2.0/MipsPipeline\</ImplementationReportsDirectory>
+  <SummaryTimeStamp>2015-10-21T15:07:38</SummaryTimeStamp>
+  <SavedFilePath>C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/iseconfig/MRstd.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline\</ImplementationReportsDirectory>
   <DateInitialized>2015-08-29T15:02:24</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

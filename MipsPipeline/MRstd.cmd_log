@@ -1,1 +1,4 @@
 xst -intstyle ise -ifn "C:/Users/Augusto/Documents/ARQ/Pipeline/MipsPipeline/MRstd.xst" -ofn "C:/Users/Augusto/Documents/ARQ/Pipeline/MipsPipeline/MRstd.syr" 
+xst -intstyle ise -ifn "C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/MRstd.xst" -ofn "C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/MRstd.syr" 
+xst -intstyle ise -ifn "C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/MRstd.xst" -ofn "C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/MRstd.syr" 
+xst -intstyle ise -ifn "C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/MRstd.xst" -ofn "C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/MRstd.syr" 
