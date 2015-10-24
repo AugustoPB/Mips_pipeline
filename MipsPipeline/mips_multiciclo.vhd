@@ -355,7 +355,11 @@ entity DIEX is
 				SEG_Rin : in  STD_LOGIC_VECTOR (4 downto 0);
 				SEG_Rout : out STD_LOGIC_VECTOR (4 downto 0);
 				SEG_IMin : in  STD_LOGIC_VECTOR (4 downto 0);
-				SEG_IMout : out STD_LOGIC_VECTOR (4 downto 0)
+				SEG_IMout : out STD_LOGIC_VECTOR (4 downto 0);
+				RSin : in STD_LOGIC_VECTOR (4 downto 0);
+				RSout : out STD_LOGIC_VECTOR (4 downto 0);
+				RTin : in STD_LOGIC_VECTOR (4 downto 0);
+				RTout : out STD_LOGIC_VECTOR (4 downto 0)
 		);
 end DIEX;
 
@@ -377,6 +381,10 @@ REG_IM: entity work.regnbit port map(ck=>ck, rst=>rst, ce=>ce, D=>IMEDin, Q=>IME
 INST_SEG_R: entity work.regnbit generic map(REG_SIZE => 4) port map(ck=>ck, rst=>rst, ce=>ce, D => SEG_Rin, Q =>SEG_Rout);
 
 INST_SEG_IM: entity work.regnbit generic map(REG_SIZE => 4) port map(ck=>ck, rst=>rst, ce=>ce, D=> SEG_IMin, Q =>SEG_IMout);
+
+RS: entity work.regnbit generic map(REG_SIZE => 4) port map(ck=>ck, rst=>rst, ce=>ce, D => RSin, Q =>RSout);
+
+RT: entity work.regnbit generic map(REG_SIZE => 4) port map(ck=>ck, rst=>rst, ce=>ce, D => RTin, Q =>RTout);
 
 end DIEX;
 
@@ -473,6 +481,48 @@ INST_SEG_RD: entity work.regnbit generic map(REG_SIZE => 4) port map(ck=>ck, rst
 
 end MEMER;
 
+--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-- Forwarding Unit
+--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_unsigned.all;
+use IEEE.std_logic_arith.all;
+use work.p_MRstd.all;
+
+entity FWUnit is
+		port(	RSin : in  STD_LOGIC_VECTOR (4 downto 0);
+				RTin : in STD_LOGIC_VECTOR (4 downto 0);
+				RDMin : in  STD_LOGIC_VECTOR (4 downto 0);
+				RDRin : in STD_LOGIC_VECTOR (4 downto 0);
+				uinsMin : in	microinstruction;	
+				uinsRin : in	microinstruction;
+				Forward: out STD_LOGIC_VECTOR(3 downto 0):= (others=>'0')
+				
+		);
+end FWUnit;
+
+architecture FWUnit of FWUnit is
+signal EX_MEM, adianta : std_logic_vector (1 downto 0);
+begin
+
+EX_MEM(1)<= '1' when RSin = RDMin else '0';
+EX_MEM(0)<= '1' when RTin = RDMin else '0';
+
+adianta(1)<= '1' when (RSin = RDMin and (uinsMin.wreg = '1' and (uinsMin.i /= LW or uinsMin.i /= LBU))) or 
+								(RSin = RDRin and uinsRin.wreg = '1') else '0';
+								
+adianta(0)<= '1' when (RTin = RDMin and uinsMin.wreg = '1') or 
+								(RTin = RDRin and uinsRin.wreg = '1') else '0';
+
+Forward <= EX_MEM & adianta;
+
+
+end FWUnit;
+
+
+
 --++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 --++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 -- Datapath structural description
@@ -497,13 +547,14 @@ entity datapath is
 end datapath;
 
 architecture datapath of datapath is
-    signal incpc, pc, npc, npcE, npcM, npcR, IR,  result, R1, R2, RA, RB, RB2, RIN, ext16, cte_im, IMED, op1, op2, 
-           outalu, RALU, MDR, mdr_int, dtpc : std_logic_vector(31 downto 0) := (others=> '0');
-    signal adD, adS, seg_r, seg_im, seg_rdE, seg_rdM : std_logic_vector(4 downto 0) := (others=> '0');    
+    signal incpc, pc, npc, npcE, npcM, npcR, IR,  result, R1, R2, RA, RB, preRA, preRB, RB2, RIN, ext16, cte_im, IMED, op1, op2, 
+           outalu, RALU, MDR, mdr_int, dtpc, for1, for2 : std_logic_vector(31 downto 0) := (others=> '0');
+    signal adD, adS, seg_r, seg_im, seg_rdE, seg_rdM, rsE, rtE: std_logic_vector(4 downto 0) := (others=> '0');    
     signal inst_branch, inst_grupo1, inst_grupoI : std_logic;
 	 signal auxiD, auxiE, auxiM, auxiR, stsigE: std_logic_vector (2 downto 0);
-    signal salta, saltaM, saltaR : std_logic := '0';
+    signal salta, saltaM, saltaR: std_logic := '0';
 	 signal uinsE, uinsM, uinsR : microinstruction;
+	 signal forward : std_logic_vector (3 downto 0);
 begin
 
    -- auxiliary signals 
@@ -563,20 +614,32 @@ begin
    -- second stage registers
 	
 	DIEX:  entity work.DIEX port map(ck=>ck, rst=>rst, ce=>uinsD.CY2, AUXIin=>auxiD, AUXIout=>auxiE, MINSin=>uinsD, MINSout=>uinsE,
-													NPCin=>npc , NPCout=>npcE, R1in=>R1, R1out=>RA, R2in=>R2, R2out=>RB, IMEDin=>cte_im, IMEDout=>IMED,
-													SEG_Rin=>IR(15 downto 11), SEG_Rout=>seg_r, SEG_IMin=>IR(20 downto 16), SEG_IMout=>seg_im);
+													NPCin=>npc , NPCout=>npcE, R1in=>R1, R1out=>preRA, R2in=>R2, R2out=>preRB, IMEDin=>cte_im, IMEDout=>IMED,
+													SEG_Rin=>IR(15 downto 11), SEG_Rout=>seg_r, SEG_IMin=>IR(20 downto 16), SEG_IMout=>seg_im, RSin=>ads,
+													RSout=>rsE, RTin=>ir(20 downto 16), RTout=>rtE);
 													
    --==============================================================================
    -- third stage
    --==============================================================================
-                      
+	
+	FWUnit: entity work.FWUnit port map(RSin=>rsE, RTin=>rtE, RDMin=>seg_rdM, RDRin=>adD, uinsMin=>uinsM, uinsRin=>uinsR, Forward=>forward);
+	                      
+	RA <= RALU when forward(3) = '1' and forward(1) = '1' else
+			MDR when forward(3) = '0' and forward(1) = '1' else
+			preRA;
+			
+	RB <= RALU when  forward(2) = '1' and forward(0) = '1' else
+			 MDR when forward(2) = '0' and forward(0) = '1' else
+			 preRB;
+								 
+								 
    -- select the first ALU operand                           
    op1 <= npcE  when auxiE(2)='1' else 
           RA; 
      
    -- select the second ALU operand
    op2 <= RB when auxiE(1)='1' or uinsE.i=SLTU or uinsE.i=SLT or uinsE.i=JR 
-                  or uinsE.i=SLLV or uinsE.i=SRAV or uinsE.i=SRLV else 
+          or uinsE.i=SLLV or uinsE.i=SRAV or uinsE.i=SRLV else 
           IMED; 
                  
    -- ALU instantiation

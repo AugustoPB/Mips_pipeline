@@ -4,10 +4,8 @@
 main:
 	lui	$at,0x00001001
 	nop
-	nop
 	ori	$t0,$at,0x00000000
 	lui	$at,0x00001001
-	nop
 	nop
 	ori	$t1,$at,0x00000004
 		
@@ -18,11 +16,7 @@ main:
 	li	$s3,32
 	
 	addu	$s4,$s1,$s2
-	nop
-	nop
 	subu	$s5,$s0,$s4
-	nop
-	nop
 	addu	$s6,$s4,$s5
 loop:
 	beq	$s2,$s3,loop2
@@ -54,7 +48,6 @@ fim:
 	nop
 	sw	$t2,0($t1)
 	lw	$t3,0($t1)
-	nop
 	nop
 	addiu	$t3,$t3,8
 	nop

@@ -13,13 +13,13 @@
          <ClosedNode>/MRstd - MRstd C:|Users|Augusto|Documents|ARQ|Pipeline|MipsPipeline|mips_multiciclo.vhd/dp - datapath - datapath</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>MRstd - MRstd (C:/Users/Augusto/Documents/ARQ/Pipeline 2.0/MipsPipeline/mips_multiciclo.vhd)</SelectedItem>
+         <SelectedItem>MRstd - MRstd (C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000019e000000020000000000000000000000000200000064ffffffff0000008100000003000000020000019e0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>MRstd - MRstd (C:/Users/Augusto/Documents/ARQ/Pipeline 2.0/MipsPipeline/mips_multiciclo.vhd)</CurrentItem>
+      <CurrentItem>MRstd - MRstd (C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -67,13 +67,13 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem>Synthesize - XST</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem>Synthesize - XST</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
@@ -81,27 +81,27 @@
          <ClosedNode>/CPU_tb - cpu_tb C:|Users|Augusto|Documents|ARQ|Pipeline|MipsPipeline|mrStd_tb.vhd/cpu - MRstd - MRstd</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>cpu - MRstd - MRstd (C:/Users/Augusto/Documents/ARQ/Pipeline 2.0/MipsPipeline/mips_multiciclo.vhd)</SelectedItem>
+         <SelectedItem>CPU_tb - cpu_tb (C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mrStd_tb.vhd)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >2</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001b2000000020000000000000000000000000200000064ffffffff000000810000000300000002000001b20000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>cpu - MRstd - MRstd (C:/Users/Augusto/Documents/ARQ/Pipeline 2.0/MipsPipeline/mips_multiciclo.vhd)</CurrentItem>
+      <CurrentItem>CPU_tb - cpu_tb (C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mrStd_tb.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
-         <ClosedNode>Design Utilities</ClosedNode>
+         <ClosedNode>Design Utilities/Compile HDL Simulation Libraries</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem>Design Utilities</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem>Design Utilities</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
       <ClosedNodes>

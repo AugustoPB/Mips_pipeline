@@ -11,41 +11,5 @@
 <msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd&quot; into library work</arg>
 </msg>
 
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd</arg>&quot; Line <arg fmt="%d" index="2">514</arg>. <arg fmt="%s" index="3">Syntax error near &quot;end&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd</arg>&quot; Line <arg fmt="%d" index="2">525</arg>. <arg fmt="%s" index="3">Syntax error near &quot;use&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd</arg>&quot; Line <arg fmt="%d" index="2">526</arg>. <arg fmt="%s" index="3">Syntax error near &quot;use&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd</arg>&quot; Line <arg fmt="%d" index="2">527</arg>. <arg fmt="%s" index="3">Syntax error near &quot;use&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd</arg>&quot; Line <arg fmt="%d" index="2">529</arg>. <arg fmt="%s" index="3">Syntax error near &quot;entity&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd</arg>&quot; Line <arg fmt="%d" index="2">530</arg>. <arg fmt="%s" index="3">Syntax error near &quot;:&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd</arg>&quot; Line <arg fmt="%d" index="2">533</arg>. <arg fmt="%s" index="3">Syntax error near &quot;out&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd</arg>&quot; Line <arg fmt="%d" index="2">534</arg>. <arg fmt="%s" index="3">Syntax error near &quot;inout&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd</arg>&quot; Line <arg fmt="%d" index="2">535</arg>. <arg fmt="%s" index="3">Syntax error near &quot;in&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd</arg>&quot; Line <arg fmt="%d" index="2">536</arg>. <arg fmt="%s" index="3">Syntax error near &quot;out&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd</arg>&quot; Line <arg fmt="%d" index="2">537</arg>. <arg fmt="%s" index="3">Syntax error near &quot;out&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd</arg>&quot; Line <arg fmt="%d" index="2">538</arg>. <arg fmt="%s" index="3">Syntax error near &quot;)&quot;.</arg>
-</msg>
-
 </messages>
 
