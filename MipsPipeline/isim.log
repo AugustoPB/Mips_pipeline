@@ -17,10 +17,21 @@ at 0 ps, Instance /cpu_tb/cpu/dp/REGS/ : Warning: CONV_INTEGER: There is an 'U'|
 at 0 ps: Error: ******************* INVALID INSTRUCTION *************
 at 0 ps, Instance /cpu_tb/cpu/dp/REGS/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
 # restart
-# run 3000 ns
+# run 2000 ns
 Simulator is doing circuit initialization process.
 at 0 ps, Instance /cpu_tb/cpu/dp/REGS/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
 Finished circuit initialization process.
 at 0 ps, Instance /cpu_tb/cpu/dp/REGS/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
 at 0 ps: Error: ******************* INVALID INSTRUCTION *************
 at 0 ps, Instance /cpu_tb/cpu/dp/REGS/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1780 ns(2), Instance /cpu_tb/cpu/dp/REGS/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1780 ns(3), Instance /cpu_tb/cpu/dp/REGS/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1780 ns(4): Error: ******************* INVALID INSTRUCTION *************
+at 1790 ns(1), Instance /cpu_tb/cpu/dp/REGS/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1790 ns(1), Instance /cpu_tb/cpu/dp/REGS/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1860 ns(2), Instance /cpu_tb/cpu/dp/REGS/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1860 ns(3), Instance /cpu_tb/cpu/dp/REGS/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1860 ns(4): Error: ******************* INVALID INSTRUCTION *************
+at 1940 ns(2), Instance /cpu_tb/cpu/dp/REGS/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1940 ns(3), Instance /cpu_tb/cpu/dp/REGS/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1940 ns(4): Error: ******************* INVALID INSTRUCTION *************

@@ -51,7 +51,7 @@ use IEEE.std_logic_1164.all;
 
 entity regnbit is
            generic(REG_SIZE : integer := 31; INIT_VALUE : STD_LOGIC_VECTOR(31 downto 0) := (others=>'0');  SENSIBILITY : std_logic := '1');
-           port(  ck, rst, ce : in std_logic;
+           port(  ck, rst, bubble, ce : in std_logic;
                   D : in  STD_LOGIC_VECTOR (REG_SIZE downto 0);
                   Q : out STD_LOGIC_VECTOR (REG_SIZE downto 0)
                );
@@ -65,7 +65,9 @@ begin
        if rst = '1' then
               Q <= INIT_VALUE(REG_SIZE downto 0);
        elsif ck'event and ck = SENSIBILITY then
-           if ce = '1' then
+			  if bubble = '1' then
+              Q <= INIT_VALUE(REG_SIZE downto 0);
+           elsif ce = '1' then
               Q <= D; 
            end if;
        end if;
@@ -81,7 +83,7 @@ use IEEE.std_logic_1164.all;
 
 entity regbit is
            generic(SENSIBILITY : STD_LOGIC := '1'; INIT_VALUE : STD_LOGIC := '0');
-           port(  ck, rst, ce : in std_logic;
+           port(  ck, rst, bubble, ce : in std_logic;
                   D : in  STD_LOGIC;
                   Q : out STD_LOGIC );
 end regbit;
@@ -94,7 +96,9 @@ begin
        if rst = '1' then
               Q <= INIT_VALUE;
        elsif ck'event and ck = SENSIBILITY then
-           if ce = '1' then
+			  if bubble = '1' then
+              Q <= INIT_VALUE;
+           elsif ce = '1' then
               Q <= D; 
            end if;
        end if;
@@ -111,7 +115,7 @@ use work.p_MRstd.all;
 
 entity regmins is
            generic(SENSIBILITY : STD_LOGIC := '1'; INIT_VALUE : inst_type := NOP);
-           port(  ck, rst, ce : in std_logic;
+           port(  ck, rst, bubble, ce : in std_logic;
                   D : in  microinstruction;
                   Q : out microinstruction );
 end regmins;
@@ -129,7 +133,14 @@ begin
 				  Q.rw <= '0';
 				  Q.bw <= '1';
        elsif ck'event and ck = SENSIBILITY then
-           if ce = '1' then
+			  if bubble = '1' then
+              Q.i <= INIT_VALUE;
+				  Q.wmdr <= '0';
+				  Q.wreg <= '0';
+				  Q.ce <= '0';
+				  Q.rw <= '0';
+				  Q.bw <= '1';
+           elsif ce = '1' then
               Q <= D; 
            end if;
        end if;
@@ -222,11 +233,11 @@ begin
 		-- assigned by the MIPS simulator!!
         g2: if i=29 generate -- SP ---  x10010000 + x800 -- top of stack
            r29: entity work.regnbit generic map( SENSIBILITY => '0', INIT_VALUE=>x"10010800")    
-                                  port map(ck=>ck, rst=>rst, ce=>wen(i), D=>RD, Q=>reg(i));
+                                  port map(ck=>ck, rst=>rst, bubble=>'0', ce=>wen(i), D=>RD, Q=>reg(i));
         end generate;  
                 
         g3: if i/=29 generate 
-           rx: entity work.regnbit generic map(SENSIBILITY => '0') port map(ck=>ck, rst=>rst, ce=>wen(i), D=>RD, Q=>reg(i));                    
+           rx: entity work.regnbit generic map(SENSIBILITY => '0') port map(ck=>ck, rst=>rst, bubble=>'0', ce=>wen(i), D=>RD, Q=>reg(i));                    
         end generate;
                    
    end generate g1;   
@@ -302,7 +313,7 @@ use work.p_MRstd.all;
 
 
 entity BIDI is
-		port(ck, rst, ce : in std_logic;
+		port(ck, rst, ce, conflict : in std_logic;
 				NPCin : in  STD_LOGIC_VECTOR (31 downto 0);
 				NPCout : out STD_LOGIC_VECTOR (31 downto 0);
 				IRin : in  STD_LOGIC_VECTOR (31 downto 0);
@@ -313,9 +324,9 @@ end BIDI;
 architecture BIDI of BIDI is
 begin
 
-RNPC: entity work.regnbit port map(ck=>ck, rst=>rst, ce=>ce, D=>NPCin, Q=>NPCout);
+RNPC: entity work.regnbit port map(ck=>ck, rst=>rst, bubble=>conflict, ce=>ce, D=>NPCin, Q=>NPCout);
 
-RIR: entity work.regnbit  port map(ck=>ck, rst=>rst, ce=>ce, D=>IRin, Q=>IRout);
+RIR: entity work.regnbit  port map(ck=>ck, rst=>rst, bubble=>conflict, ce=>ce, D=>IRin, Q=>IRout);
 
 end BIDI;
 
@@ -354,47 +365,25 @@ entity DIEX is
 end DIEX;
 
 architecture DIEX of DIEX is
-signal in1: std_logic_vector (2 downto 0);
-signal in2, uinsNOP: microinstruction;
-signal in3, in4, in5, in6: std_logic_vector (31 downto 0);
-signal in7, in8, in9: std_logic_vector (4 downto 0);
-
 begin
 
-	uinsNOP.i <= NOP;
-	uinsNOP.wmdr <= '0';
-	uinsNOP.wreg <= '0';
-	uinsNOP.ce <= '0';
-	uinsNOP.rw <= '0';
-	uinsNOP.bw <= '1';
+RAUXI: entity work.regnbit generic map(REG_SIZE => 2) port map(ck=>ck, rst=>rst, bubble=>conflict, ce=>ce, D=>AUXIin, Q=>AUXIout);
 
-in1 <= AUXIin when conflict = '0' else (others=>'0');
-in2 <= MINSin when conflict = '0' else uinsNOP;
-in3 <= NPCin when conflict = '0' else (others=>'0');
-in4 <= R1in when conflict = '0' else (others=>'0');
-in5 <= R2in when conflict = '0' else (others=>'0');
-in6 <= IMEDin when conflict = '0' else (others=>'0');
-in7 <= SEG_Rin when conflict = '0' else (others=>'0');
-in8 <= SEG_IMin when conflict = '0' else (others=>'0');
-in9 <= RSin when conflict = '0' else (others=>'0');
+RMINS: entity work.regmins port map(ck=>ck, rst=>rst, bubble=>conflict, ce=>ce, D=>MINSin, Q=>MINSout);
 
-RAUXI: entity work.regnbit generic map(REG_SIZE => 2) port map(ck=>ck, rst=>rst, ce=>ce, D=>in1, Q=>AUXIout);
+RNPC: entity work.regnbit port map(ck=>ck, rst=>rst, bubble=>conflict, ce=>ce, D=>NPCin, Q=>NPCout);
 
-RMINS: entity work.regmins port map(ck=>ck, rst=>rst, ce=>ce, D=>in2, Q=>MINSout);
+REG_S: entity work.regnbit port map(ck=>ck, rst=>rst, bubble=>conflict, ce=>ce, D=>R1in, Q=>R1out);
 
-RNPC: entity work.regnbit port map(ck=>ck, rst=>rst, ce=>ce, D=>in3, Q=>NPCout);
+REG_T: entity work.regnbit port map(ck=>ck, rst=>rst, bubble=>conflict, ce=>ce, D=>R2in, Q=>R2out);
 
-REG_S: entity work.regnbit port map(ck=>ck, rst=>rst, ce=>ce, D=>in4, Q=>R1out);
+REG_IM: entity work.regnbit port map(ck=>ck, rst=>rst, bubble=>conflict, ce=>ce, D=>IMEDin, Q=>IMEDout);
 
-REG_T: entity work.regnbit port map(ck=>ck, rst=>rst, ce=>ce, D=>in5, Q=>R2out);
+INST_SEG_R: entity work.regnbit generic map(REG_SIZE => 4) port map(ck=>ck, rst=>rst, bubble=>conflict, ce=>ce, D =>SEG_Rin, Q =>SEG_Rout);
 
-REG_IM: entity work.regnbit port map(ck=>ck, rst=>rst, ce=>ce, D=>in6, Q=>IMEDout);
+INST_SEG_IM: entity work.regnbit generic map(REG_SIZE => 4) port map(ck=>ck, rst=>rst, bubble=>conflict, ce=>ce, D=>SEG_IMin, Q =>SEG_IMout);
 
-INST_SEG_R: entity work.regnbit generic map(REG_SIZE => 4) port map(ck=>ck, rst=>rst, ce=>ce, D =>in7, Q =>SEG_Rout);
-
-INST_SEG_IM: entity work.regnbit generic map(REG_SIZE => 4) port map(ck=>ck, rst=>rst, ce=>ce, D=>in8, Q =>SEG_IMout);
-
-RS: entity work.regnbit generic map(REG_SIZE => 4) port map(ck=>ck, rst=>rst, ce=>ce, D =>in9, Q =>RSout);
+RS: entity work.regnbit generic map(REG_SIZE => 4) port map(ck=>ck, rst=>rst, bubble=>conflict, ce=>ce, D =>RSin, Q =>RSout);
 
 end DIEX;
 
@@ -410,9 +399,7 @@ use work.p_MRstd.all;
 
 
 entity EXMEM is
-		port(ck, rst, ce : in std_logic;
-				AUXIin: in STD_LOGIC_VECTOR (2 downto 0);
-				AUXIout: out STD_LOGIC_VECTOR (2 downto 0);
+		port(ck, rst, ce, conflict : in std_logic;
 				MINSin : in	microinstruction;
 				MINSout : out microinstruction;
 				NPCin : in  STD_LOGIC_VECTOR (31 downto 0);
@@ -431,20 +418,17 @@ end EXMEM;
 architecture EXMEM of EXMEM is
 begin
 
+RMINS: entity work.regmins port map(ck=>ck, rst=>rst, bubble=>conflict, ce=>ce, D=>MINSin, Q=>MINSout);
 
-RAUXI: entity work.regnbit generic map(REG_SIZE => 2) port map(ck=>ck, rst=>rst, ce=>ce, D=>AUXIin, Q=>AUXIout);
+RNPC: entity work.regnbit port map(ck=>ck, rst=>rst, bubble=>conflict, ce=>ce, D=>NPCin, Q=>NPCout);
 
-RMINS: entity work.regmins port map(ck=>ck, rst=>rst, ce=>ce, D=>MINSin, Q=>MINSout);
+RALU: entity work.regnbit  port map(ck=>ck, rst=>rst, bubble=>conflict, ce=>ce, D=>ALUin, Q=>ALUout);
 
-RNPC: entity work.regnbit port map(ck=>ck, rst=>rst, ce=>ce, D=>NPCin, Q=>NPCout);
+RSALTA: entity work.regbit port map(ck=>ck, rst=>rst, bubble=>conflict, ce=>ce, D=>SALTAin, Q=>SALTAout);
 
-RALU: entity work.regnbit  port map(ck=>ck, rst=>rst, ce=>ce, D=>ALUin, Q=>ALUout);
+REG_T: entity work.regnbit port map(ck=>ck, rst=>rst, bubble=>conflict, ce=>ce, D=>R2in, Q=>R2out);
 
-RSALTA: entity work.regbit port map(ck=>ck, rst=>rst, ce=>ce, D=>SALTAin, Q=>SALTAout);
-
-REG_T: entity work.regnbit port map(ck=>ck, rst=>rst, ce=>ce, D=>R2in, Q=>R2out);
-
-INST_SEG_RD: entity work.regnbit generic map(REG_SIZE => 4) port map(ck=>ck, rst=>rst, ce=>ce, D => SEG_RDin, Q =>SEG_RDout);
+INST_SEG_RD: entity work.regnbit generic map(REG_SIZE => 4) port map(ck=>ck, rst=>rst, bubble=>conflict, ce=>ce, D => SEG_RDin, Q =>SEG_RDout);
 
 end EXMEM;
 
@@ -461,16 +445,12 @@ use work.p_MRstd.all;
 
 entity MEMER is
 		port(ck, rst, ce : in std_logic;
-				AUXIin: in STD_LOGIC_VECTOR (2 downto 0);
-				AUXIout: out STD_LOGIC_VECTOR (2 downto 0);
 				MINSin : in	microinstruction;
 				MINSout : out microinstruction;
 				NPCin : in  STD_LOGIC_VECTOR (31 downto 0);
 				NPCout : out STD_LOGIC_VECTOR (31 downto 0);
 				MEMin : in  STD_LOGIC_VECTOR (31 downto 0);
 				MEMout : out STD_LOGIC_VECTOR (31 downto 0);
-				SALTAin : in  STD_LOGIC;
-				SALTAout : out STD_LOGIC;
 				SEG_RDin : in  STD_LOGIC_VECTOR (4 downto 0);
 				SEG_RDout : out STD_LOGIC_VECTOR (4 downto 0));
 end MEMER;
@@ -478,17 +458,13 @@ end MEMER;
 architecture MEMER of MEMER is
 begin
 
-RAUXI: entity work.regnbit generic map(REG_SIZE => 2) port map(ck=>ck, rst=>rst, ce=>ce, D=>AUXIin, Q=>AUXIout);
+RMINS: entity work.regmins port map(ck=>ck, rst=>rst, bubble=>'0', ce=>ce, D=>MINSin, Q=>MINSout);
 
-RMINS: entity work.regmins port map(ck=>ck, rst=>rst, ce=>ce, D=>MINSin, Q=>MINSout);
+RNPC: entity work.regnbit port map(ck=>ck, rst=>rst, bubble=>'0', ce=>ce, D=>NPCin, Q=>NPCout);
 
-RNPC: entity work.regnbit port map(ck=>ck, rst=>rst, ce=>ce, D=>NPCin, Q=>NPCout);
+RMEM: entity work.regnbit  port map(ck=>ck, rst=>rst, bubble=>'0', ce=>ce, D=>MEMin, Q=>MEMout);
 
-RMEM: entity work.regnbit  port map(ck=>ck, rst=>rst, ce=>ce, D=>MEMin, Q=>MEMout);
-
-RSALTA: entity work.regbit port map(ck=>ck, rst=>rst, ce=>ce, D=>SALTAin, Q=>SALTAout);
-
-INST_SEG_RD: entity work.regnbit generic map(REG_SIZE => 4) port map(ck=>ck, rst=>rst, ce=>ce, D => SEG_RDin, Q =>SEG_RDout);
+INST_SEG_RD: entity work.regnbit generic map(REG_SIZE => 4) port map(ck=>ck, rst=>rst, bubble=>'0', ce=>ce, D => SEG_RDin, Q =>SEG_RDout);
 
 end MEMER;
 
@@ -587,14 +563,13 @@ end datapath;
 
 architecture datapath of datapath is
     signal incpc, pc, npc, npcE, npcM, npcR, IR,  result, R1, R2, RA, RB, preRA, preRB, RB2, RIN, ext16, cte_im, IMED, op1, op2, 
-           outalu, RALU, MDR, mdr_int, dtpc, for1, for2 : std_logic_vector(31 downto 0) := (others=> '0');
+           outalu, RALU, MDR, mdr_int, dtpc: std_logic_vector(31 downto 0) := (others=> '0');
     signal adD, adS, seg_r, seg_im, seg_rdE, seg_rdM, rsE: std_logic_vector(4 downto 0) := (others=> '0');    
     signal inst_branch, inst_grupo1, inst_grupoI : std_logic;
-	 signal auxiD, auxiE, auxiM, auxiR, stsigE: std_logic_vector (2 downto 0);
-    signal salta, saltaM, saltaR: std_logic := '0';
+	 signal auxiD, auxiE, stsigE: std_logic_vector (2 downto 0);
+    signal salta, saltaM, conflict: std_logic := '0';
 	 signal uinsE, uinsM, uinsR: microinstruction;
 	 signal forward : std_logic_vector (3 downto 0);
-	 signal conflict : std_logic;
 begin
 	
    -- auxiliary signals 
@@ -617,7 +592,7 @@ begin
    incpc <= pc + 4;
 	
 	
-	BIDI: entity work.BIDI port map(ck=>ck, rst=>rst, ce=>not conflict, NPCin => incpc, NPCout => npc,
+	BIDI: entity work.BIDI port map(ck=>ck, rst=>rst, ce=>(not conflict), conflict=>saltaM, NPCin => incpc, NPCout => npc,
 												IRin => instruction, IRout => IR);
 
    IR_OUT <= ir ;    -- IR is the datapath output signal to carry the instruction
@@ -653,7 +628,7 @@ begin
              
    -- second stage registers
 	
-	DIEX:  entity work.DIEX port map(ck=>ck, rst=>rst, ce=>'1', conflict=>conflict, AUXIin=>auxiD, AUXIout=>auxiE, MINSin=>uinsD, MINSout=>uinsE,
+	DIEX:  entity work.DIEX port map(ck=>ck, rst=>rst, ce=>'1', conflict=>conflict or saltaM, AUXIin=>auxiD, AUXIout=>auxiE, MINSin=>uinsD, MINSout=>uinsE,
 													NPCin=>npc , NPCout=>npcE, R1in=>R1, R1out=>preRA, R2in=>R2, R2out=>preRB, IMEDin=>cte_im, IMEDout=>IMED,
 													SEG_Rin=>IR(15 downto 11), SEG_Rout=>seg_r, SEG_IMin=>IR(20 downto 16), SEG_IMout=>seg_im, RSin=>adS,
 													RSout=>rsE);
@@ -690,14 +665,16 @@ begin
 	
 	stsigE <= uinsE.ce & uinsE.rw & uinsE.bw;
 
-	EXMEM: entity work.EXMEM  port map(ck=>ck, rst=>rst, ce=>'1', AUXIin=>auxiE, AUXIout=>auxiM, MINSin=>uinsE, MINSout=>uinsM, 
+	EXMEM: entity work.EXMEM  port map(ck=>ck, rst=>rst, ce=>'1', conflict=>saltaM, MINSin=>uinsE, MINSout=>uinsM, 
 													NPCin=>npcE, NPCout=>npcM, ALUin =>outalu, ALUout=>RALU, SALTAin=>salta, SALTAout=>saltaM,
 													R2in=>RB, R2out=>RB2, SEG_RDin=>seg_rdE, SEG_RDout=>seg_rdM);	
  
    -- evaluation of conditions to take the branch instructions
    salta <=  '1' when ( (RA=RB  and uinsE.i=BEQ)  or (RA>=0  and uinsE.i=BGEZ) or
-                        (RA<=0  and uinsE.i=BLEZ) or (RA/=RB and uinsE.i=BNE) )  else
+                        (RA<=0  and uinsE.i=BLEZ) or (RA/=RB and uinsE.i=BNE) ) or
+								uinsE.i=J or uinsE.i=JAL or uinsE.i=JALR or uinsE.i=JR else
              '0';
+				 
 				 
 	-- register bank write address selection
 	seg_rdE <= "11111"               when uinsE.i=JAL else -- JAL writes in register $31
@@ -725,9 +702,8 @@ begin
               x"000000" & data(7 downto 0) when uinsM.i=LBU else
 				  RALU;              
   
-	MEMER: entity work.MEMER  port map(ck=>ck, rst=>rst, ce=>'1', AUXIin=>auxiM, AUXIout=>auxiR, MINSin=>uinsM, MINSout=>uinsR,
-													NPCin=>npcM, NPCout=>npcR, MEMin=>mdr_int, MEMout=>MDR, SALTAin=>saltaM, SALTAout=>saltaR,
-													SEG_RDin=>seg_rdM, SEG_RDout=>adD);
+	MEMER: entity work.MEMER  port map(ck=>ck, rst=>rst, ce=>'1', MINSin=>uinsM, MINSout=>uinsR,
+													NPCin=>npcM, NPCout=>npcR, MEMin=>mdr_int, MEMout=>MDR, SEG_RDin=>seg_rdM, SEG_RDout=>adD);
   
    result <= MDR;
 	
@@ -742,14 +718,13 @@ begin
    
    -- register bank write address selection
     
-   dtpc <= RALU when (auxiM(2)='1' and saltaM='1') or uinsM.i=J    or uinsM.i=JAL or uinsM.i=JALR or uinsM.i=JR  
-           else incpc;
+   dtpc <= RALU when saltaM='1' else incpc;
    
    -- Code memory starting address: beware of the OFFSET! 
    -- The one below (x"00400000") serves for code generated 
    -- by the MARS simulator
    rpc: entity work.regnbit generic map(INIT_VALUE=>x"00400000")   
-                            port map(ck=>ck, rst=>rst, ce=> (not conflict) or saltaM, D=>dtpc, Q=>pc);
+                            port map(ck=>ck, rst=>rst, bubble=>'0', ce=> (not conflict) or saltaM, D=>dtpc, Q=>pc);
 
 end datapath;
 

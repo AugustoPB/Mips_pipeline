@@ -1,4 +1,4 @@
-V3 44
+V3 47
 FL "C:/Users/Augusto/Documents/ARQ/Pipeline 2.0/MipsPipeline/mips_multiciclo.vhd" 2015/09/28.15:36:01 P.20131013
 FL C:/Users/Augusto/Documents/ARQ/Pipeline/MipsPipeline/mips_multiciclo.vhd 2015/09/27.18:24:55 P.20131013
 FL C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd 2015/10/23.14:12:32 P.20131013
@@ -63,14 +63,14 @@ EN work/EXMEM 1445616775 \
       PB ieee/std_logic_arith 1381692177 PH work/p_MRstd 1445616758
 AR work/EXMEM/EXMEM 1445616776 \
       FL C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd \
-      EN work/EXMEM 1445616775 CP work/regnbit CP work/regmins CP work/regbit
+      EN work/EXMEM 1445616775 CP work/regmins CP work/regnbit CP work/regbit
 EN work/MEMER 1445616777 \
       FL C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/STD_LOGIC_UNSIGNED 1381692179 \
       PB ieee/std_logic_arith 1381692177 PH work/p_MRstd 1445616758
 AR work/MEMER/MEMER 1445616778 \
       FL C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd \
-      EN work/MEMER 1445616777 CP work/regnbit CP work/regmins CP work/regbit
+      EN work/MEMER 1445616777 CP work/regmins CP work/regnbit
 EN work/FWUnit 1445616779 \
       FL C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/STD_LOGIC_UNSIGNED 1381692179 \
@@ -78,6 +78,13 @@ EN work/FWUnit 1445616779 \
 AR work/FWUnit/FWUnit 1445616780 \
       FL C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd \
       EN work/FWUnit 1445616779
+EN work/HZUnit 0 \
+      FL C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/STD_LOGIC_UNSIGNED 1381692179 \
+      PB ieee/std_logic_arith 1381692177 PH work/p_MRstd 1445616758
+AR work/HZUnit/HZUnit 0 \
+      FL C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd \
+      EN work/HZUnit 0
 EN work/datapath 1445616781 \
       FL C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/STD_LOGIC_SIGNED 1381692178 \
@@ -85,8 +92,8 @@ EN work/datapath 1445616781 \
 AR work/datapath/datapath 1445616782 \
       FL C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd \
       EN work/datapath 1445616781 CP work/BIDI AR work/reg_bank/reg_bank 1445616768 \
-      CP work/DIEX CP work/FWUnit CP work/alu CP work/EXMEM CP work/MEMER \
-      CP work/pulsesig CP work/regnbit
+      CP work/DIEX CP work/HZUnit CP work/FWUnit CP work/alu CP work/EXMEM \
+      CP work/MEMER CP work/pulsesig CP work/regnbit
 EN work/control_unit 1445616783 \
       FL C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd \
       PB ieee/std_logic_1164 1381692176 PH work/p_MRstd 1445616758

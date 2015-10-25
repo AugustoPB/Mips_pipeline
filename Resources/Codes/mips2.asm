@@ -1,13 +1,9 @@
 	.text
 	.globl  main
 	
-main:
-	lui	$at,0x00001001
-	nop
-	ori	$t0,$at,0x00000000
-	lui	$at,0x00001001
-	nop
-	ori	$t1,$at,0x00000004
+main:	
+	la	$t0,A
+	la	$t1,B
 		
 	
 	li 	$s1,5
@@ -20,22 +16,14 @@ main:
 	addu	$s6,$s4,$s5
 loop:
 	beq	$s2,$s3,loop2
-	nop
-	nop
-	nop
 	sll	$s2,$s2,1
 	addiu	$s7,$s7,1
 	j	loop
-	nop
-	nop
-	nop
+
 	
 loop2:
 	addiu	$s5,$s5,1
 	bne	$s5,$s0,loop2
-	nop
-	nop
-	nop
 
 fim:
 	lw	$t2,0($t0)

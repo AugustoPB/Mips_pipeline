@@ -4,8 +4,9 @@ Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
 Parsing VHDL file "C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd" into library work
-WARNING:HDLCompiler:946 - "C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd" Line 620: Actual for formal port ce is neither a static name nor a globally static expression
-WARNING:HDLCompiler:946 - "C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd" Line 752: Actual for formal port ce is neither a static name nor a globally static expression
+WARNING:HDLCompiler:946 - "C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd" Line 595: Actual for formal port ce is neither a static name nor a globally static expression
+WARNING:HDLCompiler:946 - "C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd" Line 631: Actual for formal port conflict is neither a static name nor a globally static expression
+WARNING:HDLCompiler:946 - "C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd" Line 727: Actual for formal port ce is neither a static name nor a globally static expression
 Parsing VHDL file "C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mrStd_tb.vhd" into library work
 Starting static elaboration
 Completed static elaboration
@@ -41,8 +42,8 @@ Compiling architecture control_unit of entity control_unit [control_unit_default
 Compiling architecture mrstd of entity MRstd [mrstd_default]
 Compiling architecture cpu_tb of entity cpu_tb
 Time Resolution for simulation is 1ps.
-Waiting for 10 sub-compilation(s) to finish...
+Waiting for 4 sub-compilation(s) to finish...
 Compiled 53 VHDL Units
 Built simulation executable C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/CPU_tb_isim_beh.exe
-Fuse Memory Usage: 37104 KB
-Fuse CPU Usage: 999 ms
+Fuse Memory Usage: 36424 KB
+Fuse CPU Usage: 812 ms

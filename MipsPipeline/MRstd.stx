@@ -1,0 +1,67 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.77 secs
+ 
+--> Parameter xsthdpdir set to C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.77 secs
+ 
+--> WARNING:Xst:3164 - Option "-debug" found multiple times in the command line. Only the first occurence is considered.
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd" in Library work.
+Package <p_mrstd> compiled.
+Entity <regnbit> compiled.
+Entity <regnbit> (Architecture <regnbit>) compiled.
+Entity <regbit> compiled.
+Entity <regbit> (Architecture <regbit>) compiled.
+Entity <regmins> compiled.
+Entity <regmins> (Architecture <regmins>) compiled.
+Entity <pulsesig> compiled.
+Entity <pulsesig> (Architecture <pulsesig>) compiled.
+Entity <reg_bank> compiled.
+Entity <reg_bank> (Architecture <reg_bank>) compiled.
+Entity <alu> compiled.
+Entity <alu> (Architecture <alu>) compiled.
+Entity <bidi> compiled.
+Entity <bidi> (Architecture <bidi>) compiled.
+Entity <diex> compiled.
+Entity <diex> (Architecture <diex>) compiled.
+Entity <exmem> compiled.
+Entity <exmem> (Architecture <exmem>) compiled.
+Entity <memer> compiled.
+Entity <memer> (Architecture <memer>) compiled.
+Entity <fwunit> compiled.
+Entity <fwunit> (Architecture <fwunit>) compiled.
+Entity <HZUnit> compiled.
+Entity <HZUnit> (Architecture <HZUnit>) compiled.
+Entity <datapath> compiled.
+ERROR:HDLParsers:864 - "C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd" Line 631. Actual, result of operator, associated with Formal Signal, Signal 'conflict', is not a Signal. (LRM 2.1.1)
+ERROR:HDLParsers:3298 - "C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd" line 634. Expression is not a static name.
+ERROR:HDLParsers:864 - "C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd" Line 727. Actual, result of operator, associated with Formal Signal, Signal 'ce', is not a Signal. (LRM 2.1.1)
+ERROR:HDLParsers:3298 - "C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd" line 727. Expression is not a static name.
+Entity <control_unit> compiled.
+Entity <control_unit> (Architecture <control_unit>) compiled.
+Entity <mrstd> compiled.
+ERROR:HDLParsers:333 - Binary file "C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/xst/work/sub00/vhpl18" is corrupted. Recompile unit datapath.datapath.
+
+
+Total REAL time to Xst completion: 2.00 secs
+Total CPU time to Xst completion: 1.91 secs
+ 
+--> 
+
+Total memory usage is 265024 kilobytes
+
+Number of errors   :    5 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+
