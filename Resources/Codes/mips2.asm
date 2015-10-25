@@ -23,35 +23,25 @@ loop:
 	nop
 	nop
 	nop
-	nop
 	sll	$s2,$s2,1
 	addiu	$s7,$s7,1
 	j	loop
 	nop
 	nop
 	nop
-	nop
 	
 loop2:
 	addiu	$s5,$s5,1
-	nop
-	nop
 	bne	$s5,$s0,loop2
-	nop
 	nop
 	nop
 	nop
 
 fim:
 	lw	$t2,0($t0)
-	nop
-	nop
 	sw	$t2,0($t1)
 	lw	$t3,0($t1)
-	nop
 	addiu	$t3,$t3,8
-	nop
-	nop
 	sw	$t3,0($t0)
 end:
 	j	end

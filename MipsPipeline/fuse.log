@@ -4,6 +4,8 @@ Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
 Parsing VHDL file "C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd" into library work
+WARNING:HDLCompiler:946 - "C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd" Line 620: Actual for formal port ce is neither a static name nor a globally static expression
+WARNING:HDLCompiler:946 - "C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mips_multiciclo.vhd" Line 752: Actual for formal port ce is neither a static name nor a globally static expression
 Parsing VHDL file "C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/mrStd_tb.vhd" into library work
 Starting static elaboration
 Completed static elaboration
@@ -26,6 +28,7 @@ Compiling architecture regnbit of entity regnbit [\regnbit(2,('0','0','0','0','0
 Compiling architecture regmins of entity regmins [regmins_default]
 Compiling architecture regnbit of entity regnbit [\regnbit(4,('0','0','0','0','0',...]
 Compiling architecture diex of entity DIEX [diex_default]
+Compiling architecture hzunit of entity HZUnit [hzunit_default]
 Compiling architecture fwunit of entity FWUnit [fwunit_default]
 Compiling architecture alu of entity alu [alu_default]
 Compiling architecture regbit of entity regbit [regbit_default]
@@ -38,8 +41,8 @@ Compiling architecture control_unit of entity control_unit [control_unit_default
 Compiling architecture mrstd of entity MRstd [mrstd_default]
 Compiling architecture cpu_tb of entity cpu_tb
 Time Resolution for simulation is 1ps.
-Waiting for 22 sub-compilation(s) to finish...
-Compiled 51 VHDL Units
+Waiting for 10 sub-compilation(s) to finish...
+Compiled 53 VHDL Units
 Built simulation executable C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/CPU_tb_isim_beh.exe
-Fuse Memory Usage: 35608 KB
-Fuse CPU Usage: 921 ms
+Fuse Memory Usage: 37104 KB
+Fuse CPU Usage: 999 ms

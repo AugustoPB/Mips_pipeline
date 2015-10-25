@@ -16,7 +16,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="39" />
+   <WVObjectSize size="43" />
    <wvobject fp_name="/cpu_tb/dadress" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">dadress[31:0]</obj_property>
       <obj_property name="ObjectShortName">dadress[31:0]</obj_property>
@@ -154,6 +154,10 @@
       <obj_property name="ElementShortName">.i</obj_property>
       <obj_property name="ObjectShortName">uinsr.i</obj_property>
    </wvobject>
+   <wvobject fp_name="/cpu_tb/cpu/dp/DIEX/minsin" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">minsin</obj_property>
+      <obj_property name="ObjectShortName">minsin</obj_property>
+   </wvobject>
    <wvobject fp_name="/cpu_tb/cpu/dp/stsig_out" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">stsig_out[2:0]</obj_property>
       <obj_property name="ObjectShortName">stsig_out[2:0]</obj_property>
@@ -192,6 +196,14 @@
    <wvobject fp_name="/cpu_tb/cpu/dp/uinsr.wreg" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">.wreg</obj_property>
       <obj_property name="ObjectShortName">uinsr.wreg</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpu/dp/rpc/ce" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ce</obj_property>
+      <obj_property name="ObjectShortName">ce</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpu/dp/conflict" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">conflict</obj_property>
+      <obj_property name="ObjectShortName">conflict</obj_property>
    </wvobject>
    <wvobject fp_name="/cpu_tb/cpu/dp/prera" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">prera[31:0]</obj_property>
@@ -238,9 +250,14 @@
       <obj_property name="ObjectShortName">rse[4:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/cpu_tb/cpu/dp/rte" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">rte[4:0]</obj_property>
-      <obj_property name="ObjectShortName">rte[4:0]</obj_property>
+   <wvobject fp_name="/cpu_tb/cpu/dp/seg_im" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">seg_im[4:0]</obj_property>
+      <obj_property name="ObjectShortName">seg_im[4:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpu/dp/seg_rde" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">seg_rde[4:0]</obj_property>
+      <obj_property name="ObjectShortName">seg_rde[4:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/cpu_tb/cpu/dp/seg_rdm" type="array" db_ref_id="1">

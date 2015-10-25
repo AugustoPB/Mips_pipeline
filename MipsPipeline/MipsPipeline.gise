@@ -54,37 +54,38 @@
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
-    <transform xil_pn:end_ts="1445539994" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1445539994">
+    <transform xil_pn:end_ts="1445723209" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1445723209">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1445699920" xil_pn:in_ck="-3857218611789880308" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1445699920">
+    <transform xil_pn:end_ts="1445724807" xil_pn:in_ck="-3857218611789880308" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1445724807">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="mips_multiciclo.vhd"/>
       <outfile xil_pn:name="mrStd_tb.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1445539994" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="2299603899767101728" xil_pn:start_ts="1445539994">
+    <transform xil_pn:end_ts="1445723209" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="2299603899767101728" xil_pn:start_ts="1445723209">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1445539994" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-6696634163272036574" xil_pn:start_ts="1445539994">
+    <transform xil_pn:end_ts="1445723209" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-6696634163272036574" xil_pn:start_ts="1445723209">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1445539994" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="1898784248877839941" xil_pn:start_ts="1445539994">
+    <transform xil_pn:end_ts="1445723209" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="1898784248877839941" xil_pn:start_ts="1445723209">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1445699924" xil_pn:in_ck="-3857218611789880308" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1445699924">
+    <transform xil_pn:end_ts="1445724812" xil_pn:in_ck="-3857218611789880308" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1445724812">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="mips_multiciclo.vhd"/>
       <outfile xil_pn:name="mrStd_tb.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1445699933" xil_pn:in_ck="-3857218611789880308" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-1233511053816220779" xil_pn:start_ts="1445699924">
+    <transform xil_pn:end_ts="1445724818" xil_pn:in_ck="-3857218611789880308" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-1233511053816220779" xil_pn:start_ts="1445724812">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="CPU_tb_beh.prj"/>
@@ -94,11 +95,11 @@
       <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1445699933" xil_pn:in_ck="-2505907929472236325" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="2520819593175211746" xil_pn:start_ts="1445699933">
+    <transform xil_pn:end_ts="1445724818" xil_pn:in_ck="-2505907929472236325" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="2520819593175211746" xil_pn:start_ts="1445724818">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="OutputChanged"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="CPU_tb_isim_beh.wdb"/>
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="isim.log"/>
