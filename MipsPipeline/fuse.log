@@ -42,8 +42,8 @@ Compiling architecture control_unit of entity control_unit [control_unit_default
 Compiling architecture mrstd of entity MRstd [mrstd_default]
 Compiling architecture cpu_tb of entity cpu_tb
 Time Resolution for simulation is 1ps.
-Waiting for 4 sub-compilation(s) to finish...
+Waiting for 3 sub-compilation(s) to finish...
 Compiled 53 VHDL Units
 Built simulation executable C:/Users/Augusto/Documents/GitHub/Mips_pipeline/MipsPipeline/CPU_tb_isim_beh.exe
-Fuse Memory Usage: 36424 KB
-Fuse CPU Usage: 812 ms
+Fuse Memory Usage: 36428 KB
+Fuse CPU Usage: 905 ms
